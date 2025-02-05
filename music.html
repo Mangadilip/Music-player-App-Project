@@ -12,6 +12,7 @@
   </head>
   <body>
     <header>
+      <!-- aside -->
       <div class="menu_container">
         <h1>Playlist</h1>
         <div class="playlist">
@@ -27,8 +28,11 @@
         </div>
         <div class="menu_songs"></div>
       </div>
+
+      <!-- main side -->
       <div class="songs_container"></div>
 
+      <!-- footer side -->
       <div class="play_bar">
         <div class="wave">
           <div class="wave1"></div>
@@ -40,6 +44,26 @@
           vande mataram
           <div class="subtitle">Bankim Chandra Chatterjee</div>
         </h5>
+        <div class="icon">
+          <i class="bi shuffle bi-music-note-beamed">next</i>
+          <i class="bi bi-skip-start-fill"></i>
+          <i class="bi bi-play-fill"></i>
+          <i class="bi bi-skip-end-fill"></i>
+          <i class="bi bi-cloud-arrow-down-fill" id="download_music"></i>
+        </div>
+        <span id="song_counter_start">0.00</span>
+        <div class="bar">
+          <input type="range" id="seek" min="0" max="100" />
+          <div class="bar2" id="bar2"></div>
+          <div class="dot"></div>
+        </div>
+        <span id="song_counter_end">0.00</span>
+        <div class="volume">
+          <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+          <input type="range" id="vol_seek" min="0" max="100" />
+          <div class="vol_bar" id="vol_bar"></div>
+          <div class="vol_dot" id="vol_dot"></div>
+        </div>
       </div>
     </header>
 
