@@ -4,43 +4,48 @@ A simple yet elegant music player web application built using HTML, CSS, JavaScr
 
 ✨ Features
 
-   🎶 Play, Pause, and Stop music controls
 
-   ⏩ Next & Previous track navigation
+🎶 Play, Pause, and Stop music controls
 
-   🔄 Loop and Shuffle options
+⏩ Next & Previous track navigation
 
-   📂 Custom playlist management
+🔄 Loop and Shuffle options
 
-   🎨 Responsive and stylish Bootstrap-powered design
+📂 Custom playlist management
+
+🎨 Responsive and stylish Bootstrap-powered design
 
 🛠️ Technologies Used
 
-   . HTML – Structure of the web app
+. HTML – Structure of the web app
 
-   . CSS & Bootstrap – Styling and responsiveness
+. CSS & Bootstrap – Styling and responsiveness
 
-   . JavaScript – Music playback logic and controls
+. JavaScript – Music playback logic and controls
 
 🚀 Getting Started
 
-   Clone the repository: git clone https://github.com/Mangadilip/Music-player-App-Project
+Run Locally
 
-   Open the index.html file in your browser
+To run Music Player locally, run this command on your git bash:
 
-   Enjoy your music! 🎶
+Clone the repository: git clone https://github.com/Mangadilip/Music-player-App-Project
+
+Open the index.html file in your browser
+
+Enjoy your music! 🎶
 
 📸 Preview
 
-  (Add a screenshot or GIF of your music player here)
+(Add a screenshot or GIF of your music player here)
 
-  💡 Future Enhancements
+💡 Future Enhancements
 
-  🎵 Add support for online music streaming
+🎵 Add support for online music streaming
 
-  🎚️ Volume and equalizer controls
+🎚️ Volume and equalizer controls
 
-  🌙 Dark mode for better UI experience
+🌙 Dark mode for better UI experience
 
 Feel free to contribute and improve this project!
 
