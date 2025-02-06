@@ -1,4 +1,5 @@
 🎵 Music Player App
+
 A simple yet elegant music player web application built using HTML, CSS, JavaScript, and Bootstrap. This app allows users to play, pause, and navigate through their favorite tracks with a smooth and responsive UI.
 
 ✨ Features
