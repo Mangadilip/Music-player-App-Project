@@ -8,6 +8,7 @@ A simple yet elegant music player web application built using HTML, CSS, JavaScr
 🔄 Loop and Shuffle options
 📂 Custom playlist management
 🎨 Responsive and stylish Bootstrap-powered design
+
 🛠️ Technologies Used
 . HTML – Structure of the web app
 . CSS & Bootstrap – Styling and responsiveness
