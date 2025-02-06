@@ -35,9 +35,13 @@ Enjoy your music! 🎶
 (Add a screenshot or GIF of your music player here)
 
 💡 Future Enhancements
+
 🎵 Add support for online music streaming
+
 🎚️ Volume and equalizer controls
+
 🌙 Dark mode for better UI experience
+
 Feel free to contribute and improve this project!
 
 📌 Author: Manga Dilip
