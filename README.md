@@ -4,13 +4,13 @@ A simple yet elegant music player web application built using HTML, CSS, JavaScr
 
 ✨ Features
 
-  🎶 Play, Pause, and Stop music controls
+    🎶 Play, Pause, and Stop music controls
 
-  ⏩ Next & Previous track navigation
+    ⏩ Next & Previous track navigation
 
-  🔄 Loop and Shuffle options
+    🔄 Loop and Shuffle options
 
-  📂 Custom playlist management
+    📂 Custom playlist management
 
   🎨 Responsive and stylish Bootstrap-powered design
 
