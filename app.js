@@ -95,3 +95,31 @@ songs
   .catch((error) => console.error("Error fetching songs:", error));
 
 // popular artists-----------------------------
+const artists = fetch(
+  "https://run.mocky.io/v3/631f424b-a048-402b-935e-bc1bc54c94f0"
+);
+artists
+  .then((response) => response.json())
+  .then((data) => {
+    const artistsDiv = document.querySelector(".item");
+
+    const artistContainer = document.createElement("div");
+    artistContainer.className = "artist-container";
+
+    data.forEach((artist) => {
+      const frame = document.createElement("div");
+      frame.className = "frame-card";
+
+      const post = document.createElement("img");
+      post.src = artist.poster;
+      post.className = "artist-image";
+
+      frame.appendChild(post);
+      artistContainer.appendChild(frame);
+    });
+    artistsDiv.appendChild(artistContainer);
+  })
+  .catch((error) => console.error("error fetching data :", error));
+
+  
+

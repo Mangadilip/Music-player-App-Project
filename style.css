@@ -619,7 +619,7 @@ header .songs_container .popular_song .h4 .bi:hover {
   width: 115px;
   height: 115px;
   border-radius: 10px;
-  transition: transform 0.3s ease;
+  transition:  0.3s ease;
 }
 .song-card:hover img {
   transform: scale(1.1); /* Zoom effect on hover */
@@ -676,7 +676,7 @@ header .songs_container .popular_song .h4 .bi:hover {
 header .songs_container .popular_artist {
   width: 90%;
   height: auto;
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
   margin: auto;
   margin-top: 15px;
 }
@@ -692,4 +692,38 @@ header .songs_container .popular_artist .h4 .bi {
 }
 header .songs_container .popular_artist .h4 .bi:hover {
   color: #fff;
+}
+
+
+
+
+.artist-container {
+  display:flex;
+  
+  gap: 16px;
+  padding: 16px;
+  /* border: 1px solid; */
+  overflow-x: scroll;
+  /* border: 1px solid #fff; */
+}
+
+.frame-card {
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+   /* border: 1px solid; */
+}
+
+.artist-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  /* border: 1px solid; */
+  transition: 0.2s ease;
+}
+.artist-image:hover{
+  transform: scale(1.1);
 }
