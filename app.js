@@ -1,76 +1,97 @@
-let songs = fetch("https://run.mocky.io/v3/fd6f98c5-84c4-4b50-b548-892f1693e833");
+const songs = fetch(
+  "https://run.mocky.io/v3/e9ec1d4d-2870-4511-9688-75c6b3914f7a"
+);
 
-songs.then((response) => response.json()).then((data) => {
-  const container = document.querySelector(".menu_songs");
+songs
+  .then((response) => response.json())
+  .then((data) => {
+    const container = document.querySelector(".menu_songs");
 
-  // Array of local image paths
-  const images = [
-    "./assets/img/1.jpg",
-    "./assets/img/2.jpg",
-    "./assets/img/3.jpg",
-    "./assets/img/4.jpg",
-    "./assets/img/4.jpg",
-    "./assets/img/5.jpg",
-    "./assets/img/6.jpg",
-    "./assets/img/7.jpg",
-    "./assets/img/8.jpg",
-    "./assets/img/9.jpg",
-    "./assets/img/10.jpg",
-    "./assets/img/11.jpg",
-    "./assets/img/12.jpg",
-    "./assets/img/13.jpg",
-    "./assets/img/14.jpg",
-    "./assets/img/15.jpg",
-    "./assets/img/16.jpg",
-    "./assets/img/17.jpg",
-    "./assets/img/18.jpg",
-    "./assets/img/19.jpg",
-    "./assets/img/20.jpg",
-   
-  ];
+    const popSongDiv = document.querySelector(".pop_song");
 
-  data.forEach((song, index) => {
-    // Create song item container
-    const songItem = document.createElement("div");
-    songItem.className = "song-item";
+    const songContainer = document.createElement("div");
+    songContainer.className = "song-container";
 
-    // Song number
-    const songNumber = document.createElement("div");
-    songNumber.className = "song-number";
-    songNumber.textContent = String(index + 1).padStart(2, "0");
+    data.forEach((song, index) => {
+      // Create song item container menu_songs---------------------
+      const songItem = document.createElement("div");
+      songItem.className = "song-item";
 
-    // Song cover
-    const songCover = document.createElement("img");
-    songCover.className = "song-cover";
-    // Use the image from the local folder, wrapping around with modulus if there are more songs than images
-    songCover.src = images[index % images.length];
+      // Song number
+      const songNumber = document.createElement("div");
+      songNumber.className = "song-number";
+      songNumber.textContent = String(index + 1).padStart(2, "0");
 
-    // Song details
-    const songDetails = document.createElement("div");
-    songDetails.className = "song-details";
+      // Song cover
+      const songCover = document.createElement("img");
+      songCover.className = "song-cover";
+      songCover.src = song.image;
+      songCover.alt = song.title;
 
-    const songTitle = document.createElement("h3");
-    songTitle.className = "song-title";
-    songTitle.textContent = song.title || `Song Title ${index + 1}`;
+      // Song details
+      const songDetails = document.createElement("div");
+      songDetails.className = "song-details";
 
-    const songArtist = document.createElement("p");
-    songArtist.className = "song-artist";
-    songArtist.textContent = song.artist || `Artist ${index + 1}`;
+      const songTitle = document.createElement("h3");
+      songTitle.className = "song-title";
+      songTitle.textContent = song.title || `Song Title ${index + 1}`;
 
-    songDetails.appendChild(songTitle);
-    songDetails.appendChild(songArtist);
+      const songArtist = document.createElement("p");
+      songArtist.className = "song-artist";
+      songArtist.textContent = song.artist || `Artist ${index + 1}`;
 
-    // Play button
-    const playButton = document.createElement("div");
-    playButton.className = "play-button";
+      songDetails.appendChild(songTitle);
+      songDetails.appendChild(songArtist);
 
-    // Append elements to song item
-    songItem.appendChild(songNumber);
-    songItem.appendChild(songCover);
-    songItem.appendChild(songDetails);
-    songItem.appendChild(playButton);
+      // Play button
+      const play_Button = document.createElement("div");
+      play_Button.className = "play_button";
+      play_Button.onclick = () => alert(`Playing ${song.title}`);
 
-    // Append song item to container
-    container.appendChild(songItem);
-  });
-});
+      // Append elements to song item
+      songItem.appendChild(songNumber);
+      songItem.appendChild(songCover);
+      songItem.appendChild(songDetails);
+      songItem.appendChild(play_Button);
+
+      // Append song item to container
+      container.appendChild(songItem);
+
+      // popural songs---------------------------------------
+      const card = document.createElement("div");
+      card.className = "song-card";
+
+      const img = document.createElement("img");
+      img.src = song.image;
+      img.alt = song.title;
+      card.appendChild(img);
+
+      const playButton = document.createElement("div");
+      playButton.className = "play-button";
+      playButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      `;
+      playButton.onclick = () => alert(`Playing ${song.title}`);
+      card.appendChild(playButton);
+
+      const title = document.createElement("div");
+      title.className = "songs-title";
+      title.textContent = song.title;
+      card.appendChild(title);
+
+      const artist = document.createElement("div");
+      artist.className = "song-artists";
+      artist.textContent = song.artist;
+      card.appendChild(artist);
+
+      songContainer.appendChild(card);
+    });
+
+    // Append the song container to the div with class 'pop_song'
+    popSongDiv.appendChild(songContainer);
+  })
+  .catch((error) => console.error("Error fetching songs:", error));
+
+// popular artists-----------------------------
