@@ -29,7 +29,7 @@
             Stations
           </h4>
         </div>
-        <div class="menu_songs"></div>
+        <div class="menu_songs"></i></div>
       </div>
 
       <!-- main side -->
@@ -67,7 +67,7 @@
               <i class="bi bi-arrow-right-short" id="pop_song_right"></i>
             </div>
           </div>
-          <div class="pop_song"></div>
+          <div class="pop_song" id="pop_songs"></div>
         </div>
 
         <div class="popular_artist">
@@ -84,7 +84,7 @@
 
       <!-- footer side -->
       <div class="play_bar">
-        <div class="wave">
+        <div class="wave" id="wave">
           <div class="wave1"></div>
           <div class="wave1"></div>
           <div class="wave1"></div>
@@ -92,13 +92,14 @@
         <img src="./assets/img/20.jpg" alt="" id="play_bar" />
         <h5 id="title">
           vande mataram
-          <div class="subtitle">Bankim Chandra Chatterjee</div>
+          <p id="subtitle">Bankim Chandra Chatterjee</p>
+          <!-- <div class="subtitle" id="subtitle">Bankim Chandra Chatterjee</div> -->
         </h5>
         <div class="icon">
           <i class="bi shuffle bi-music-note-beamed">next</i>
-          <i class="bi bi-skip-start-fill"></i>
-          <i class="bi bi-play-fill"></i>
-          <i class="bi bi-skip-end-fill"></i>
+          <i class="bi bi-skip-start-fill" id="back"></i>
+          <i class="bi bi-play-fill" id="master_play"></i>
+          <i class="bi bi-skip-end-fill" id="next"></i>
           <i class="bi bi-cloud-arrow-down-fill" id="download_music"></i>
         </div>
         <span id="song_counter_start">0.00</span>
@@ -109,7 +110,7 @@
         </div>
         <span id="song_counter_end">0.00</span>
         <div class="volume">
-          <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+          <i class="bi bi-volume-up-fill" id="vol_icon"></i>
           <input type="range" id="vol_seek" min="0" max="100" />
           <div class="vol_bar" id="vol_bar"></div>
           <div class="vol_dot" id="vol_dot"></div>

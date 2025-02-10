@@ -152,6 +152,7 @@ header .menu_container .menu_songs::-webkit-scrollbar {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+ 
 }
 header .menu_container .song-item:hover {
   background: rgb(105, 105, 105, 0.1);
@@ -198,6 +199,7 @@ header .menu_container .song-item:hover {
 
 /* Add this to your CSS */
 .song-details {
+  /* border: 1px solid; */
   overflow: hidden;
   /* white-space: nowrap; */
   position: relative;
@@ -221,12 +223,15 @@ header .menu_container .song-item:hover {
 
 .play_button {
   width: 20px;
-  height: 20px;
-  background: url("https://cdn-icons-png.flaticon.com/512/727/727245.png")
-    no-repeat center/contain;
+  /* height: 20px; */
+ color: #fff;
   cursor: pointer;
-  filter: invert(1);
+  font-size: 23px;
+  /* border: 1px solid; */
+  /* display: none; */
+  
 }
+
 header .play_bar {
   /* z-index: 1; */
   display: flex;
@@ -237,7 +242,7 @@ header .play_bar .wave {
   width: 30px;
   height: 30px;
   /* border: 1px solid #fff; */
-  padding-bottom: 5px;
+  padding-bottom: 3px;
   display: flex;
   align-items: flex-end;
   margin-right: 10px;
@@ -253,7 +258,7 @@ header .play_bar .wave .wave1 {
 header .play_bar .wave .wave1:nth-child(2) {
   height: 13px;
   margin-right: 3.5px;
-  animation-delay: 0.4s;
+  animation-delay: 0.6s;
 }
 header .play_bar .wave .wave1:nth-child(3) {
   height: 8px;
@@ -299,7 +304,7 @@ header .play_bar h5 {
   white-space: nowrap;
   font-size: 14px;
 }
-header .play_bar h5 .subtitle {
+header .play_bar h5 #subtitle {
   font-size: 10px;
   color: #b3b3b3;
   width: 100%;
@@ -358,7 +363,7 @@ header .play_bar .bar .bar2 {
   position: absolute;
   background: #36e2ec;
   /* border: 1px solid #fff; */
-  width: 50%;
+  width: 0%;
   height: 100%;
   top: 0;
   transition: 1s linear;
@@ -429,7 +434,7 @@ header .play_bar .volume input {
 }
 header .play_bar .volume .vol_bar {
   position: absolute;
-  width: 50%;
+  width: 100%;
   height: 100%;
   background: #36e2ec;
   top: 0;
@@ -442,7 +447,7 @@ header .play_bar .volume .vol_dot {
   background: #36e2ec;
   border-radius: 50%;
   top: -1.5px;
-  left: 0%;
+  left: 100%;
   transition: 1s linear;
 }
 header .play_bar .volume .vol_dot::before {
@@ -594,24 +599,35 @@ header .songs_container .popular_song .h4 .bi {
 header .songs_container .popular_song .h4 .bi:hover {
   color: #fff;
 }
-/* header .songs_container .popular_song .pop_song{
-  border: 1px solid #fff;
+.pop_song{
+  display: flex;
+  gap: 16px;
+  /* padding: 16px; */
+  overflow-x: auto;
   scroll-behavior: smooth;
- } */
+  white-space: nowrap;
+ }
 
 /* popular songs container */
 
 .song-container {
   display: flex;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   /* border: 1px solid; */
 }
-.song-card {
+.song-card{
   /* border: 1px solid; */
-  margin-right: 10px;
+  /* margin-right: 1px; */
   text-align: center;
-  position: relative; /* For play button overlay */
+  position: relative; 
+  /* background: red; */
+  width: 140px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
+
 .song-card img {
   /* border: 1px solid; */
   margin-top: 15px;
@@ -622,7 +638,7 @@ header .songs_container .popular_song .h4 .bi:hover {
   transition: 0.3s ease;
 }
 .song-card:hover img {
-  transform: scale(1.1); /* Zoom effect on hover */
+  transform: scale(1.1); 
 }
 .play-button {
   position: absolute;
@@ -650,23 +666,25 @@ header .songs_container .popular_song .h4 .bi:hover {
 }
 .songs-title {
   width: 90px;
-  margin-left: 20px;
+  margin-left: 25px;
   /* border: 1px solid; */
   margin-top: 5px;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: left;
 }
 .song-artists {
   width: 90px;
-  margin-left: 20px;
+  margin-left: 25px;
   /* border: 1px solid; */
   font-size: 12px;
   color: #aaa;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: left;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -693,15 +711,20 @@ header .songs_container .popular_artist .h4 .bi {
 header .songs_container .popular_artist .h4 .bi:hover {
   color: #fff;
 }
+.item {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
 
 .artist-container {
   display: flex;
-
   gap: 16px;
-  padding: 16px;
-  /* border: 1px solid; */
-  overflow-x: scroll;
-  /* border: 1px solid #fff; */
+ 
 }
 
 .frame-card {

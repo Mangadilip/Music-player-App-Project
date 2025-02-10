@@ -1,5 +1,7 @@
+let songsData = [];
+
 const songs = fetch(
-  "https://run.mocky.io/v3/e9ec1d4d-2870-4511-9688-75c6b3914f7a"
+  "https://run.mocky.io/v3/cf8aac18-4b9c-46cb-b46d-250c725df123"
 );
 
 songs
@@ -12,8 +14,11 @@ songs
     const songContainer = document.createElement("div");
     songContainer.className = "song-container";
 
+    songsData = data;
+
     data.forEach((song, index) => {
-      // Create song item container menu_songs---------------------
+      // Create song item container menu_songs side playlist---------------------
+
       const songItem = document.createElement("div");
       songItem.className = "song-item";
 
@@ -46,7 +51,33 @@ songs
       // Play button
       const play_Button = document.createElement("div");
       play_Button.className = "play_button";
-      play_Button.onclick = () => alert(`Playing ${song.title}`);
+      play_Button.id = index + 1;
+      play_Button.classList.add("bi-vinyl");
+
+      play_Button.addEventListener("click", (e) => {
+        index = e.currentTarget.id;
+        // console.log(index)
+        music.src = `assets/audio/${index}.mp3`;
+        play_bar.src = `assets/img/${index}.jpg`;
+        music.play();
+        masterPlay.classList.remove("bi-play-fill");
+        masterPlay.classList.add("bi-pause-fill");
+        wave.classList.add("active1");
+
+        let songData = songsData.find(
+          (song) => String(song.id) === String(index)
+        );
+
+        if (songData) {
+          document.getElementById("title").childNodes[0].textContent =
+            songData.title;
+        }
+        if (songData) {
+          document.getElementById("subtitle").textContent = songData.artist;
+        }
+      });
+
+      // play_Button.onclick = () => alert(`Playing ${song.title}`);
 
       // Append elements to song item
       songItem.appendChild(songNumber);
@@ -73,7 +104,31 @@ songs
           <path d="M8 5v14l11-7z"></path>
         </svg>
       `;
-      playButton.onclick = () => alert(`Playing ${song.title}`);
+      playButton.id = index + 1;
+
+      playButton.addEventListener("click", (e) => {
+        index = e.currentTarget.id;
+        console.log(index);
+        music.src = `assets/audio/${index}.mp3`;
+        play_bar.src = `assets/img/${index}.jpg`;
+        music.play();
+        masterPlay.classList.remove("bi-play-fill");
+        masterPlay.classList.add("bi-pause-fill");
+        wave.classList.add("active1");
+
+        let songData = songsData.find(
+          (song) => String(song.id) === String(index)
+        );
+
+        if (songData) {
+          document.getElementById("title").childNodes[0].textContent =
+            songData.title;
+        }
+        if (songData) {
+          document.getElementById("subtitle").textContent = songData.artist;
+        }
+      });
+      // playButton.onclick = () => alert(`Playing ${song.title}`);
       card.appendChild(playButton);
 
       const title = document.createElement("div");
@@ -94,7 +149,7 @@ songs
   })
   .catch((error) => console.error("Error fetching songs:", error));
 
-// popular artists-----------------------------
+// popular artists---------------------------------------------
 const artists = fetch(
   "https://run.mocky.io/v3/631f424b-a048-402b-935e-bc1bc54c94f0"
 );
@@ -121,5 +176,151 @@ artists
   })
   .catch((error) => console.error("error fetching data :", error));
 
-  
+// scroll icons of popular songs-------------------------------
+let pop_song_left = document.getElementById("pop_song_left");
+let pop_song_right = document.getElementById("pop_song_right");
+let pop_songs = document.getElementById("pop_songs");
 
+pop_song_right.addEventListener("click", () => {
+  pop_songs.scrollLeft += 330;
+});
+
+pop_song_left.addEventListener("click", () => {
+  pop_songs.scrollLeft -= 330;
+});
+
+// scroll icons of popular artists------------------------
+let pop_art_left = document.getElementById("pop_art_left");
+let pop_art_right = document.getElementById("pop_art_right");
+let items = document.getElementById("items");
+
+pop_art_right.addEventListener("click", () => {
+  items.scrollLeft += 200;
+});
+
+pop_art_left.addEventListener("click", () => {
+  items.scrollLeft -= 200;
+});
+
+// palybar down--------------------------------------
+
+const music = new Audio("assets/audio/20.mp3");
+// music.play();
+
+let play_bar = document.getElementById("play_bar");
+
+let masterPlay = document.getElementById("master_play");
+let wave = document.getElementById("wave");
+
+masterPlay.addEventListener("click", () => {
+  if (music.paused || music.currentTime <= 0) {
+    music.play();
+    wave.classList.add("active1");
+    masterPlay.classList.remove("bi-play-fill");
+    masterPlay.classList.add("bi-pause-fill");
+  } else {
+    music.pause();
+    wave.classList.remove("active1");
+    masterPlay.classList.add("bi-play-fill");
+    masterPlay.classList.remove("bi-pause-fill");
+  }
+});
+
+let song_counter_start = document.getElementById("song_counter_start");
+let song_counter_end = document.getElementById("song_counter_end");
+let seek = document.getElementById("seek");
+let bar2 = document.getElementById("bar2");
+let dot = document.getElementsByClassName("dot")[0];
+
+music.addEventListener("timeupdate", () => {
+  let music_current_time = music.currentTime;
+  let music_end = music.duration;
+
+  let min1 = Math.floor(music_end / 60);
+  let sec1 = Math.floor(music_end % 60);
+
+  if (sec1 < 10) {
+    sec1 = `0${sec1}`;
+  }
+  song_counter_end.innerHTML = `${min1}:${sec1}`;
+
+  let min2 = Math.floor(music_current_time / 60);
+  let sec2 = Math.floor(music_current_time % 60);
+  if (sec2 < 10) {
+    sec2 = `0${sec2}`;
+  }
+
+  song_counter_start.innerHTML = `${min2}:${sec2}`;
+
+  let progressBar = parseInt((music_current_time / music_end) * 100);
+  seek.value = progressBar;
+  // console.log(seek.value);
+  let seekbar = seek.value;
+  bar2.style.width = `${seekbar}%`;
+  dot.style.left = `${seekbar}%`;
+});
+
+seek.addEventListener("change", () => {
+  music.currentTime = (seek.value * music.duration) / 100;
+});
+
+let vol_icon = document.getElementById("vol_icon");
+let vol =document.getElementById("vol_seek");
+let vol_bar = document.getElementsByClassName("vol_bar")[0];
+let vol_dot = document.getElementById("vol_dot");
+
+
+vol.addEventListener("change",()=>{
+  if (vol.value == 0){
+    vol_icon.classList.remove("bi-volume-up-fill");
+    vol_icon.classList.remove("bi-volume-down-fill");
+    vol_icon.classList.add("bi-volume-mute-fill")
+
+    
+  }
+  if(vol.value > 0){
+    vol_icon.classList.remove("bi-volume-up-fill");
+    vol_icon.classList.add("bi-volume-down-fill");
+    vol_icon.classList.remove("bi-volume-mute-fill")
+  }
+  if(vol.value > 50){
+    vol_icon.classList.add("bi-volume-up-fill");
+    vol_icon.classList.remove("bi-volume-down-fill");
+    vol_icon.classList.remove("bi-volume-mute-fill")
+  }
+  let vol_a = vol.value; 
+vol_bar.style.width = `${vol_a}%`; 
+vol_dot.style.left = `${vol_a}%`; 
+music.volume = vol_a / 100;
+})
+
+let back = document.getElementById("back");
+let next = document.getElementById("next");
+
+back.addEventListener("click",()=>{
+  // index -=1;
+  music.src = `assets/audio/${index}.mp3`;
+        play_bar.src = `assets/img/${index}.jpg`;
+        music.play();
+        masterPlay.classList.remove("bi-play-fill");
+        masterPlay.classList.add("bi-pause-fill");
+        wave.classList.add("active1");
+
+        let songData = songsData.find((song) => String(song.id) === String(index)
+        );
+
+        if (songData) {
+          document.getElementById("title").childNodes[0].textContent =
+            songData.title;
+        }
+        if (songData) {
+          document.getElementById("subtitle").textContent = songData.artist;
+        }
+        makeAllBackground();
+        Array.from(document.getElementsByClassName("item"))[index -1].style.background="rgb(105, 105, 105, .1)";
+        makeAllplays();
+        e.traget.classList.remove("bi-play-circle-fill");
+        e.traget.classList.add("bi-pause-circle-fill");
+        wave.classList.add('active1');
+
+})
