@@ -1,7 +1,7 @@
 let songsData = [];
 
 const songs = fetch(
-  "https://run.mocky.io/v3/cf8aac18-4b9c-46cb-b46d-250c725df123"
+  "https://run.mocky.io/v3/c0d39c31-1343-4a49-be9b-34b88c0c2906"
 );
 
 songs
