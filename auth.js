@@ -2,7 +2,7 @@ import {
   auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-} from "./firebase.js";
+} from "./firebase/firebase.js";
 
 let loginform = document.getElementById("loginform");
 let signupform = document.getElementById("signupform");
