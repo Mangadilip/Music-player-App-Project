@@ -1,0 +1,114 @@
+body, html, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+body {
+    background-color: black;
+    background-image: url(https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2024/03/woman-listening-to-music-with-headphones.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login Form Container */
+#loginFormDiv, #forgotPasswordDiv {
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.542);
+    /* backdrop-filter: blur(10px);  */
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); */
+    padding: 2rem;
+    width: 350px;
+    text-align: center;
+    /* border: 1px solid; */
+    /* margin-left: 20%; */
+    
+}
+
+#loginFormDiv p, #signupform p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/* Form Elements */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+/* Input Fields */
+#email, #password, #retypePassword {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+#email::placeholder, #password::placeholder, #retypePassword::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Submit Button */
+#submit {
+    background: rgb(20, 220, 60);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#submit:hover {
+    background: rgb(234, 202, 18);
+}
+
+/* Signup Link */
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width:450px){
+    #loginFormDiv {
+        padding: 1rem;
+    }
+
+    #loginFormDiv p, #signupform p {
+        margin-bottom: 1rem;
+    }
+
+    form {
+        gap: 0.5rem;
+    }
+
+    a {
+        font-size: 0.9rem;
+    }
+}

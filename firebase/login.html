@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./login-singup.css">
+    <link rel="icon" href="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" type="image/svg+xml" />
+</head>
+
+<body>
+    <div id="loginFormDiv">
+        <p>Login</p>
+        <form action="" id="loginform">
+           
+            <input id="email" type="email" placeholder="Email"><br>
+            
+            <input id="password" type="password" placeholder="Password"><br>
+            <input type="submit" id="submit" onclick="openLoader('loginform')" value="Submit"><br>
+            <a href="./forgot.html">Forgot Password?</a>
+            <a href="./signup.html">Don't have an account, Signup</a>
+            <a href="./index.html">Back</a>
+        </form>
+    </div>
+
+    <script src="./auth.js" type="module"></script>
+    <script>
+        function openLoader(buttonId) {
+          window.location.href = `loader.html?button=${buttonId}`;
+        }
+      </script>
+
+</body>
+</html>

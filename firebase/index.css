@@ -1,0 +1,186 @@
+html,body, *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    background-color: black;
+    background-image: url(https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2024/03/woman-listening-to-music-with-headphones.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+    background-size: cover;
+    background-attachment: fixed;
+    /* background-repeat: no-repeat; */
+    color: white;
+}
+
+.loginSignup{
+    /* border: solid red; */
+    border-radius: 1rem;
+    height: 99vh;
+    width: 30vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10%;
+    margin-right:auto;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.loginSignupContents{
+    /* border: solid blue; */
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.434);
+    /* width: 100%; */
+    /* height: 100%; */
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.loginSignupContents>*{
+    margin-bottom: 2rem;
+}
+
+#loginButton,#signupButton{
+    display: block;
+    background-color: rgba(76, 247, 93, 0.929);
+    width: 97%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    font-weight: bolder;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    border: none;
+    margin-bottom: 1rem;
+    color: black;
+    cursor: pointer;
+    align-self: center;
+}
+
+#loginButton:hover,#signupButton:hover{
+    background-color: rgba(239, 243, 20, 0.814);;
+    font-size: 1.1rem;
+
+    transition: all,0.2s;
+}
+
+#landingTitle{
+    /* color:rgb(243, 71, 148); */
+    font-size: 2rem;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    /* text-decoration: underline; */
+}
+
+#landingSlogan{
+    color:rgb(71, 77, 243);
+    font-size: 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+
+    background-image: linear-gradient(90deg,rgb(68, 14, 243), rgb(31, 254, 6));
+    color: transparent;
+    background-clip: text;
+}
+
+#landingDescription{
+    /* color:rgb(243, 71, 148); */
+    font-size: 1.2rem;
+    font-weight:lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-style:oblique; */
+}
+#guestModeButton{
+    display: block;
+    background-color: rgba(246, 252, 246, 0.253);
+    width: 97%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    font-weight: bolder;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    border: none;
+    margin-bottom: 1rem;
+    color: black;
+    cursor: pointer;
+    align-self: center;
+}
+#guestModeButton:hover{
+    background-color: rgba(241, 241, 224, 0.501);;
+    font-size: 1.1rem;
+
+    transition: all,0.2s
+}
+
+
+@media screen and (max-width:800px) {
+    .loginSignup{
+        width: 75vw;
+        margin: auto;
+    }
+
+    .loginSignupContents>*{
+        margin-bottom: 1rem;
+    }
+
+    .loginSignupContents{
+        font-size: 0.8rem;
+    }
+
+    #landingTitle{
+        /* color:rgb(243, 71, 148); */
+        font-size: 2rem;
+        font-family: Arial, Helvetica, sans-serif;
+        /* text-decoration: underline; */
+    }
+    
+    #landingSlogan{
+        font-size: 2.3rem;
+    }
+    
+    #landingDescription{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .loginSignup{
+        width: 90vw;
+        margin: auto;
+    }
+
+    .loginSignupContents>*{
+        margin-bottom: 1rem;
+    }
+
+    .loginSignupContents{
+        font-size: 0.8rem;
+    }
+
+    #landingTitle{
+        /* color:rgb(243, 71, 148); */
+        font-size: 1.2rem;
+        font-family: Arial, Helvetica, sans-serif;
+        /* text-decoration: underline; */
+    }
+    
+    #landingSlogan{
+        font-size: 1.7rem;
+    }
+    
+    #landingDescription{
+        font-size: 1rem;
+    }
+}
