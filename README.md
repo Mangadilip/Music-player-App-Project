@@ -37,7 +37,7 @@ Enjoy your music! 🎶
 
 📸 Preview
 
-(Add a screenshot or GIF of your music player here)
+![alt text](assets/img/Screenshot%202025-02-13%20015146.png)
 
 💡 Future Enhancements
 
