@@ -1,7 +1,7 @@
 let songsData = [];
 
 const songs = fetch(
-  "https://run.mocky.io/v3/5b996b1b-0f75-4a1d-9b30-56ef64603eda"
+  "https://run.mocky.io/v3/f59d8f2f-4b3f-4054-b389-8fa5f9a020a2"
 );
 
 songs
@@ -57,8 +57,8 @@ songs
       play_Button.addEventListener("click", (e) => {
         index = e.currentTarget.id;
         // console.log(index)
-        music.src = `assets/audio/${index}.mp3`;
-        play_bar.src = `assets/img/${index}.jpg`;
+        music.src = `assets/audio/arjit/${index}.mp3`;
+        play_bar.src = `assets/img/arjit/${index}.jpg`;
         music.play();
         masterPlay.classList.remove("bi-play-fill");
         masterPlay.classList.add("bi-pause-fill");
@@ -109,8 +109,8 @@ songs
       playButton.addEventListener("click", (e) => {
         index = e.currentTarget.id;
         console.log(index);
-        music.src = `assets/audio/${index}.mp3`;
-        play_bar.src = `assets/img/${index}.jpg`;
+        music.src = `assets/audio/arjit/${index}.mp3`;
+        play_bar.src = `assets/img/arjit/${index}.jpg`;
         music.play();
         masterPlay.classList.remove("bi-play-fill");
         masterPlay.classList.add("bi-pause-fill");
@@ -150,60 +150,31 @@ songs
   .catch((error) => console.error("Error fetching songs:", error));
 
 // popular artists---------------------------------------------
-const artists = fetch("https://run.mocky.io/v3/71f5d4bc-0f0c-4162-a9d3-c756967f73b6")
+const artists = fetch(
+  "https://run.mocky.io/v3/71f5d4bc-0f0c-4162-a9d3-c756967f73b6"
+);
 artists
-.then((response) => response.json())
-.then((data) => {
-  const artistsDiv = document.querySelector(".item");
+  .then((response) => response.json())
+  .then((data) => {
+    const artistsDiv = document.querySelector(".item");
 
-  if (!artistsDiv) {
-    console.error("Container with class 'item' not found!");
-    return;
-  }
+    const artistContainer = document.createElement("div");
+    artistContainer.className = "artist-container";
 
-  const artistContainer = document.createElement("div");
-  artistContainer.className = "artist-container";
-
-  const fragment = document.createDocumentFragment(); 
-
-  data.forEach((artist) => {
-    const frame = document.createElement("div");
-    frame.className = "frame-card";
-
-    let content;
-
-    if (artist.id === 1) {
-      // If artist ID is 1, wrap the image in a clickable <a> tag
-      const link = document.createElement("a");
-      link.href = `artist2.html?id=${artist.id}`;
+    data.forEach((artist) => {
+      const frame = document.createElement("div");
+      frame.className = "frame-card";
 
       const post = document.createElement("img");
       post.src = artist.poster;
       post.className = "artist-image";
-      post.alt = `${artist.name} Poster`;
 
-      link.appendChild(post);
-      content = link;
-    } else {
-      // For other artists, display only the image (non-clickable)
-      const post = document.createElement("img");
-      post.src = artist.poster;
-      post.className = "artist-image";
-      post.alt = `${artist.name} Poster`;
-
-      content = post;
-    }
-
-    frame.appendChild(content);
-    fragment.appendChild(frame);
-  });
-
-  artistContainer.appendChild(fragment);
-  artistsDiv.appendChild(artistContainer);
-})
-.catch((error) => console.error("Error fetching data:", error));
-
-
+      frame.appendChild(post);
+      artistContainer.appendChild(frame);
+    });
+    artistsDiv.appendChild(artistContainer);
+  })
+  .catch((error) => console.error("error fetching data :", error));
 
 // scroll icons of popular songs-------------------------------
 let pop_song_left = document.getElementById("pop_song_left");
@@ -294,42 +265,35 @@ seek.addEventListener("change", () => {
 });
 
 let vol_icon = document.getElementById("vol_icon");
-let vol =document.getElementById("vol_seek");
+let vol = document.getElementById("vol_seek");
 let vol_bar = document.getElementsByClassName("vol_bar")[0];
 let vol_dot = document.getElementById("vol_dot");
 
-
-vol.addEventListener("change",()=>{
-  if (vol.value == 0){
+vol.addEventListener("change", () => {
+  if (vol.value == 0) {
     vol_icon.classList.remove("bi-volume-up-fill");
     vol_icon.classList.remove("bi-volume-down-fill");
-    vol_icon.classList.add("bi-volume-mute-fill")
-
-    
+    vol_icon.classList.add("bi-volume-mute-fill");
   }
-  if(vol.value > 0){
+  if (vol.value > 0) {
     vol_icon.classList.remove("bi-volume-up-fill");
     vol_icon.classList.add("bi-volume-down-fill");
-    vol_icon.classList.remove("bi-volume-mute-fill")
+    vol_icon.classList.remove("bi-volume-mute-fill");
   }
-  if(vol.value > 50){
+  if (vol.value > 50) {
     vol_icon.classList.add("bi-volume-up-fill");
     vol_icon.classList.remove("bi-volume-down-fill");
-    vol_icon.classList.remove("bi-volume-mute-fill")
+    vol_icon.classList.remove("bi-volume-mute-fill");
   }
-  let vol_a = vol.value; 
-vol_bar.style.width = `${vol_a}%`; 
-vol_dot.style.left = `${vol_a}%`; 
-music.volume = vol_a / 100;
-})
-
-
-
-
+  let vol_a = vol.value;
+  vol_bar.style.width = `${vol_a}%`;
+  vol_dot.style.left = `${vol_a}%`;
+  music.volume = vol_a / 100;
+});
 
 let back = document.getElementById("back");
 let next = document.getElementById("next");
-let index = 1; 
+let index = 1;
 
 back.addEventListener("click", () => {
   if (index > 1) {
@@ -339,15 +303,15 @@ back.addEventListener("click", () => {
 });
 
 next.addEventListener("click", () => {
-  if (index < songsData.length) { 
+  if (index < songsData.length) {
     index += 1;
     changeSong(index);
   }
 });
 
 function changeSong(index) {
-  music.src = `assets/audio/${index}.mp3`;
-  play_bar.src = `assets/img/${index}.jpg`;
+  music.src = `assets/audio/arjit/${index}.mp3`;
+  play_bar.src = `assets/img/arjit/${index}.jpg`;
   music.play();
 
   masterPlay.classList.remove("bi-play-fill");
@@ -368,8 +332,8 @@ function changeSong(index) {
   }
 
   makeAllplays();
-  
-  // Highlight the currently playing song
+
+  // Highlight the currently playing song-------------------------------------
   let currentItem = document.querySelector(`.item[data-id="${index}"]`);
   if (currentItem) {
     let playButton = currentItem.querySelector(".bi-play-circle-fill");
@@ -382,13 +346,10 @@ function changeSong(index) {
   wave.classList.add("active1");
 }
 
-
-
-
 let downloadMusic = document.getElementById("download_music");
 
 downloadMusic.addEventListener("click", (event) => {
-  event.preventDefault(); 
+  event.preventDefault();
 
   if (!music.src) {
     alert("No song is currently playing!");
@@ -397,8 +358,7 @@ downloadMusic.addEventListener("click", (event) => {
 
   let currentSongIndex = music.src.split("/").pop().replace(".mp3", "");
 
-  
-  let songData = songsData.find(song => String(song.id) === currentSongIndex);
+  let songData = songsData.find((song) => String(song.id) === currentSongIndex);
 
   if (!songData) {
     alert("Song data not found!");
@@ -413,9 +373,8 @@ downloadMusic.addEventListener("click", (event) => {
   document.body.removeChild(a);
 });
 
-
 let shuffle = document.getElementsByClassName("shuffle")[0];
-let currentMode = "next"; 
+let currentMode = "next";
 
 shuffle.addEventListener("click", () => {
   if (currentMode === "next") {
@@ -439,7 +398,7 @@ shuffle.addEventListener("click", () => {
   }
 });
 
-// repeat random next-------------------
+// repeat random order--------------------------------
 music.addEventListener("ended", () => {
   if (currentMode === "repeat") {
     // Repeat the same song
@@ -455,16 +414,13 @@ music.addEventListener("ended", () => {
     if (index < songsData.length) {
       index += 1;
     } else {
-      index = 1;
+      index = 1; // Restart from the first song
     }
     changeSong(index);
   }
 });
 
-
-
-
-// search
+// search----------------------------------------
 
 let searchInput = document.querySelector(".search input");
 let searchHistory = document.querySelector(".search_history");
@@ -479,8 +435,10 @@ searchInput.addEventListener("input", () => {
     return;
   }
 
-  let filteredSongs = songsData.filter(song => 
-    song.title.toLowerCase().includes(query) || song.artist.toLowerCase().includes(query)
+  let filteredSongs = songsData.filter(
+    (song) =>
+      song.title.toLowerCase().includes(query) ||
+      song.artist.toLowerCase().includes(query)
   );
 
   if (filteredSongs.length === 0) {
@@ -489,7 +447,7 @@ searchInput.addEventListener("input", () => {
     return;
   }
 
-  filteredSongs.forEach(song => {
+  filteredSongs.forEach((song) => {
     let songCard = document.createElement("div");
     songCard.className = "card";
     songCard.innerHTML = `
