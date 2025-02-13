@@ -520,3 +520,29 @@ document.addEventListener("click", (e) => {
     searchHistory.style.display = "none";
   }
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  let userInfo = document.getElementById("userInfo");
+  let userDropdown = document.getElementById("userDropdown");
+
+  userInfo.addEventListener("click", function (event) {
+    event.stopPropagation(); // Prevents event bubbling
+    userDropdown.classList.toggle("show_user_dropdown");
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", function (event) {
+    if (!userInfo.contains(event.target)) {
+      userDropdown.classList.remove("show_user_dropdown");
+    }
+  });
+});
+
+
+
+
+
+
