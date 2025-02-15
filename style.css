@@ -239,6 +239,7 @@ header .play_bar {
   display: flex;
   align-items: center;
   padding: 0px 20px;
+  border: 1px solid #fff;
 }
 header .play_bar .wave {
   width: 30px;
@@ -877,3 +878,70 @@ header .songs_container .popular_artist .h4 .bi:hover {
 
 
 
+@media (max-width: 1024px) {
+  footer .play_bar {
+    height: 65px;
+    padding: 8px;
+  }
+
+  footer .play_bar .bar {
+    width: 45%;
+  }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+  footer .play_bar {
+    height: 60px;
+    flex-direction: row;
+    padding: 6px;
+  }
+
+  footer .play_bar .bar {
+    width: 50%;
+  }
+
+  footer .play_bar .volume {
+    margin-left: 10px;
+    width: 50px;
+  }
+
+  .song-title {
+    font-size: 14px;
+  }
+
+  .song-artist {
+    font-size: 10px;
+  }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .menu_container{
+    display: none;
+  }
+  header .songs_container{
+    width: 100vw; 
+  }
+  header .songs_container nav {
+    width: 100vw;
+    height: 10%;
+    border: 1px solid;
+    
+  }
+  .song-container {
+    display: flex;
+    
+  }
+  .song-card img {
+    
+    width: 100px;
+    height: 100px;
+    
+  }
+  
+
+
+
+  
+}
