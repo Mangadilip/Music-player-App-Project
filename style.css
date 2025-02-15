@@ -14,7 +14,7 @@ body {
   font-family: "poppins", sans-serif;
   width: 100%;
   height: 100vh;
-  background-color: #121213;
+  background-color:#111721;
   display: grid;
   place-items: center;
 }
@@ -920,10 +920,13 @@ header .songs_container .popular_artist .h4 .bi:hover {
   }
   header .songs_container{
     width: 100vw; 
+    height: 86vh;
   }
   header .songs_container nav {
     width: 100vw;
     height: 10%;
+    /* border: 1px solid; */
+    position:sticky;
   }
   .song-container {
     display: flex;
