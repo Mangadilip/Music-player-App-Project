@@ -931,8 +931,8 @@ header .songs_container .popular_artist .h4 .bi:hover {
   }
   .song-card img {
     
-    width: 100px;
-    height: 100px;
+    width: 115px;
+    height: 115px;
     
   }
   .user_login h2 {
@@ -947,12 +947,12 @@ header .songs_container .popular_artist .h4 .bi:hover {
    margin-top: 10px;
   }
   header .songs_container nav .search {
-    width: 40%;
+    width: 60%;
     height: 35px;
   }
   header .songs_container nav .search input {
     font-size: 12px;
-    width: 80%;
+    width: 52%;
     height: 20px;
     margin-top: 8px;
   }
@@ -964,5 +964,5 @@ header .songs_container .popular_artist .h4 .bi:hover {
   header .play_bar #song_counter_start,.bar,#song_counter_end,.volume {
     display:none;
   }
- 
+  
 }
