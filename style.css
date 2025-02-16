@@ -877,6 +877,17 @@ header .songs_container .popular_artist .h4 .bi:hover {
 
 
 @media (max-width: 1024px) {
+  header .songs_container nav .search {
+    width: 45%;
+    height: 35px;
+  }
+  
+  header .songs_container nav .search input {
+    font-size: 12px;
+    width: 52%;
+    height: 20px;
+    margin-top: 8px;
+  }
   footer .play_bar {
     height: 65px;
     padding: 8px;
@@ -889,6 +900,38 @@ header .songs_container .popular_artist .h4 .bi:hover {
 
 /* Mobile devices (max-width: 768px) */
 @media (max-width: 768px) {
+  header .menu_container{
+    width: 30%;
+  }
+  header .songs_container{
+    width: 70%;
+  }
+  header .songs_container nav .search {
+    width: 60%;
+    height: 35px;
+  }
+  
+  header .songs_container nav .search input {
+    font-size: 12px;
+    width: 52%;
+    height: 20px;
+    margin-top: 8px;
+  }
+  header .songs_container::before {
+    content: "";
+    display: none;
+  }
+  .user_login h2 {
+    display: none;
+  }
+  .user_img img {
+    
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+   margin-right:-15px;
+   margin-top: 10px;
+  }
   footer .play_bar {
     height: 60px;
     flex-direction: row;
@@ -920,7 +963,7 @@ header .songs_container .popular_artist .h4 .bi:hover {
   }
   header .songs_container{
     width: 100vw; 
-    height: 86vh;
+    height: 90vh;
   }
   header .songs_container nav {
     width: 100vw;
