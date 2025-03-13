@@ -1,7 +1,7 @@
 let songsData = [];
 
 const songs = fetch(
-  "https://run.mocky.io/v3/3548acbd-33b2-4518-adb7-557ffb479766"
+  "https://run.mocky.io/v3/68a4fab9-bcee-4b5c-80dc-492c2a61b6eb"
 );
 
 songs
@@ -150,7 +150,7 @@ songs
   .catch((error) => console.error("Error fetching songs:", error));
 
 // popular artists---------------------------------------------
-const artists = fetch("https://run.mocky.io/v3/e4a2d674-70b4-4de5-b7c6-0e6f610ddd00")
+const artists = fetch("https://run.mocky.io/v3/da8f68a8-9658-4819-80ea-d09fb8ecd8cf")
 artists
 .then((response) => response.json())
 .then((data) => {
