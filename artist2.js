@@ -1,7 +1,7 @@
 let songsData = [];
 
 const songs = fetch(
-  "https://run.mocky.io/v3/7e8a1210-9cb8-4a5f-baaa-24c6454171da"
+  "https://run.mocky.io/v3/a5f57cf1-8115-4f92-9e78-35aefe748dc9"
 );
 
 songs
@@ -151,7 +151,7 @@ songs
 
 // popular artists---------------------------------------------
 const artists = fetch(
-  "https://run.mocky.io/v3/da8f68a8-9658-4819-80ea-d09fb8ecd8cf"
+  "https://run.mocky.io/v3/37c4f9ce-7db2-4f0e-baba-cf74c9794f08"
 );
 artists
   .then((response) => response.json())
